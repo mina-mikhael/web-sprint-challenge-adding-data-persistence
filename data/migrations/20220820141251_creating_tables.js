@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-  knex.schema
+  return knex.schema
     .createTable("projects", (tbl) => {
       tbl.increments("project_id");
       tbl.string("project_name", 200).notNullable();
@@ -12,7 +12,7 @@ exports.up = function (knex) {
       tbl.string("resource_description", 500);
     })
     .createTable("tasks", (tbl) => {
-      tbl.increments("tasK_id");
+      tbl.increments("task_id");
       tbl.string("task_description", 300).notNullable();
       tbl.string("task_notes", 500);
       tbl.boolean("task_completed").defaultTo(false);
