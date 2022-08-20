@@ -9,7 +9,8 @@ async function getAll() {
 
 async function create(payload) {
   const newResourceId = await db("resources").insert(payload);
-  await db("resources").where("resource_id", newResourceId).first();
+  const newResource = await db("resources").where("resource_id", newResourceId).first();
+  return newResource;
 }
 
 module.exports = { getAll, create };
